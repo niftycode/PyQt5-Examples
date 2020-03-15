@@ -21,9 +21,10 @@ class SimpleApp(QWidget):
         self.top = 300
         self.width = 450
         self.height = 300
-        self.initUI()
+        self.init_ui()
 
-    def initUI(self):
+    def init_ui(self):
+        # Set basic window layout
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
         self.show()

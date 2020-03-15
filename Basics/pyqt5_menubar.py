@@ -2,14 +2,15 @@
 # -*- coding: utf-8 -*-
 
 """
-Qt5 QMainWindow
+Qt5 QMainWindow with menubar
 Create a main window using a class
 Author: niftycode
 Date created: March 15th, 2020
 """
 
 import sys
-from PyQt5.QtWidgets import (QMainWindow, QApplication, QWidget)
+from PyQt5.QtWidgets import (QMainWindow, QApplication,
+    QWidget, QAction, qApp)
 
 
 class MainWindow(QMainWindow):
@@ -25,9 +26,31 @@ class MainWindow(QMainWindow):
         self.top = 300
         self.width = 450
         self.height = 300
+
+        self.create_actions()
         self.init_ui()
 
+    def create_actions(self):
+
+        # Add a quit action
+        self.quit_action = QAction('&Quit', self)
+        self.quit_action.setShortcut('Ctrl+Q')
+        self.quit_action.setStatusTip('Exit this application.')
+        self.quit_action.triggered.connect(qApp.quit)
+
+    def create_menubar(self):
+        # Create menubar
+        menubar = self.menuBar()
+        menubar.setNativeMenuBar(False)
+        self.file_menu.addAction(self.quit_action)
+
     def init_ui(self):
+
+        # Create menus
+        self.file_menu = self.menuBar().addMenu('&File')
+        self.create_menubar()
+
+        # Set basic window layout
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
         self.show()
@@ -35,6 +58,5 @@ class MainWindow(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    # app.setStyle('Windows')  # Fusion (Linux), Macintosh (macOS)
     window = MainWindow()
     sys.exit(app.exec_())
