@@ -2,25 +2,21 @@
 # -*- coding: utf-8 -*-
 
 """
-Qt5 QMainWindow
+PyQt5: 2nd window example
+Create a window using a class
 
 Author: niftycode
 Date created: March 15th, 2020
 """
 
 import sys
-from PyQt5.QtWidgets import (QMainWindow, QApplication, QWidget)
+from PyQt5.QtWidgets import QApplication, QWidget
 
 
-class MainWindow(QMainWindow):
-
+class SimpleApp(QWidget):
     def __init__(self):
         super().__init__()
-
-        # Create a new widget object (window)
-        widget = QWidget()
-        self.setCentralWidget(widget)
-        self.title = 'Qt5-MainWindow'
+        self.title = 'Qt5-Window'
         self.left = 300
         self.top = 300
         self.width = 450
@@ -35,6 +31,5 @@ class MainWindow(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    # app.setStyle('Windows')  # Fusion (Linux), Macintosh (macOS)
-    window = MainWindow()
+    example_window = SimpleApp()
     sys.exit(app.exec_())
