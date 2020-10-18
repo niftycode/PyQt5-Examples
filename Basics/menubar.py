@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Qt5 QMainWindow with menubar
-Create a main window using a class
+PyQt5 - QMainWindow with menubar
 Author: niftycode
 Date created: March 15th, 2020
 """
@@ -21,7 +20,7 @@ class MainWindow(QMainWindow):
         # Create a new widget object (window)
         widget = QWidget()
         self.setCentralWidget(widget)
-        self.title = 'Qt5-MainWindow'
+        self.title = 'Qt5-MainWindow with menubar'
         self.left = 300
         self.top = 300
         self.width = 450

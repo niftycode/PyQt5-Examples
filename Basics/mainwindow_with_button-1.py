@@ -2,21 +2,27 @@
 # -*- coding: utf-8 -*-
 
 """
-PyQt5 - 2nd window example using QWidget
-Create a window using a class
+PyQt5 - Create a main windows using QMainWindow
+with a button widget (QPushButton).
+1st example
 
 Author: niftycode
-Date created: March 15th, 2020
+Date created: October 18th, 2020
 """
 
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget
+from PyQt5.QtWidgets import (QMainWindow, QApplication, QPushButton)
 
 
-class SimpleApp(QWidget):
+class MainWindow(QMainWindow):
+
     def __init__(self):
         super().__init__()
-        self.title = 'Qt5-Window'
+
+        # Create a new widget object (button)
+        button = QPushButton("Click me!")
+        self.setCentralWidget(button)
+        self.title = 'Qt5-MainWindow with button'
         self.left = 300
         self.top = 300
         self.width = 450
@@ -24,7 +30,6 @@ class SimpleApp(QWidget):
         self.init_ui()
 
     def init_ui(self):
-        # Set basic window layout
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
         self.show()
@@ -32,5 +37,6 @@ class SimpleApp(QWidget):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    example_window = SimpleApp()
+    # app.setStyle('Windows')  # Fusion (Linux), Macintosh (macOS)
+    window = MainWindow()
     sys.exit(app.exec_())

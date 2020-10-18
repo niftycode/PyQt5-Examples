@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-PyQt5: 1st window example
+PyQt5 - 1st window example using QWidget
 
 Author: niftycode
 Date created: March 15th, 2020
